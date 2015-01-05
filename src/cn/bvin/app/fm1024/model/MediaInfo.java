@@ -9,7 +9,7 @@ public class MediaInfo {
 	public Object slidereplay;
 	
 	@SerializedName("transcode")
-	public Transcode[] transCode;
+	public Transcode transCode;
 	
 	/**下载地址*/
     public String download;
