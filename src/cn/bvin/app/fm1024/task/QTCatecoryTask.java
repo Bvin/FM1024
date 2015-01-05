@@ -1,5 +1,9 @@
 package cn.bvin.app.fm1024.task;
 
+import com.google.gson.Gson;
+
+import cn.bvin.app.fm1024.model.JsonChannels;
+import cn.bvin.app.fm1024.model.MediaInfo;
 import cn.bvin.lib.manager.RequestManager;
 import android.content.Context;
 import android.support.v4.content.AsyncTaskLoader;
@@ -37,6 +41,8 @@ public class QTCatecoryTask extends AsyncTaskLoader<String>{
 	public String loadInBackground() {
 		String retsult = RequestManager.getStringResponse(url);
 		Log.e(url, retsult);
-		return retsult;
+		JsonChannels channels = new Gson().fromJson(retsult, JsonChannels.class);
+		MediaInfo mediaInfo = channels.data[0].mediaInfo;
+		return mediaInfo.host.od+mediaInfo.download;
 	}
 }
