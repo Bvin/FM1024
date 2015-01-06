@@ -41,8 +41,8 @@ public class MainActivity extends FragmentActivity implements LoaderCallbacks<St
 
 	@Override
 	protected void onDestroy() {
-		SystemPlayer.getInstance().stop();
 		super.onDestroy();
+		SystemPlayer.getInstance().stop();
 	}
 	
 }
